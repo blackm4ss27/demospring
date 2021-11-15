@@ -10,4 +10,5 @@ public class Socio {
     private String correo;
     private String celular;
     //falta las relaciones
+    //private Usuario tieneUsuario
 }

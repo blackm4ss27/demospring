@@ -6,5 +6,4 @@ public class Cuenta {
     private float saldo;
     private String movimiento;
     //relaciones
-    //private Usuario
 }
