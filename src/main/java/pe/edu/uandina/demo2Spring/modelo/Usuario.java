@@ -13,6 +13,8 @@ public class Usuario {
     private String login;
     @Column(name = "contrasena")
     private String contrasena;
+    @OneToOne(mappedBy = "tieneUsuario")
+    private Socio esdeSocio;
 
     public Usuario() {
     }
@@ -44,5 +46,13 @@ public class Usuario {
 
     public void setContrasena(String contrasena) {
         this.contrasena = contrasena;
+    }
+
+    public Socio getEsdeSocio() {
+        return esdeSocio;
+    }
+
+    public void setEsdeSocio(Socio esdeSocio) {
+        this.esdeSocio = esdeSocio;
     }
 }
