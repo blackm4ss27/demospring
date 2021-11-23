@@ -5,3 +5,4 @@ import pe.edu.uandina.demo2Spring.modelo.Cuenta;
 
 public interface ICuentaDao extends CrudRepository<Cuenta, Long> {
 }
+//ala m
