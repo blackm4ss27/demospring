@@ -1,6 +1,8 @@
 package pe.edu.uandina.demo2Spring.modelo;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +22,7 @@ public class Socio {
     @Column(name = "sexo")
     private String sexo;
     @Column(name = "fechaNac")
-    private String fechaNac;
+    private LocalDate fechaNac;
     @Column(name = "correo")
     private String correo;
     @Column(name = "celular")
@@ -37,7 +39,7 @@ public class Socio {
     public Socio() {
     }
 
-    public Socio(String nomSocio, String apSocio, String dni, String sexo, String fechaNac, String correo, String celular, Usuario tieneUsuario, List<Cuenta> tieneCuenta, List<Prestamo> solicitaPrestamos) {
+    public Socio(String nomSocio, String apSocio, String dni, String sexo, LocalDate fechaNac, String correo, String celular, Usuario tieneUsuario, List<Cuenta> tieneCuenta, List<Prestamo> solicitaPrestamos) {
         this.nomSocio = nomSocio;
         this.apSocio = apSocio;
         this.dni = dni;
@@ -90,11 +92,11 @@ public class Socio {
         this.sexo = sexo;
     }
 
-    public String getFechaNac() {
+    public LocalDate getFechaNac() {
         return fechaNac;
     }
 
-    public void setFechaNac(String fechaNac) {
+    public void setFechaNac(LocalDate fechaNac) {
         this.fechaNac = fechaNac;
     }
 

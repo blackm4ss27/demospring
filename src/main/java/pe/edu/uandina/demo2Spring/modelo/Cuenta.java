@@ -1,6 +1,8 @@
 package pe.edu.uandina.demo2Spring.modelo;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +19,8 @@ public class Cuenta {
     private float saldo;
     @Column(name = "movimiento")
     private String movimiento;
+    @Column (name = "fechaApertura")
+    private LocalDateTime fechaApertura;
     //relaciones
     @ManyToOne
     @JoinColumn(name = "perteneceSocio", referencedColumnName = "id")
@@ -25,10 +29,12 @@ public class Cuenta {
     public Cuenta() {
     }
 
-    public Cuenta(String tipoCuenta, float saldo, String movimiento, Socio perteneceSocio) {
+    public Cuenta(long id, String tipoCuenta, float saldo, String movimiento, LocalDateTime fechaApertura, Socio perteneceSocio) {
+        this.id = id;
         this.tipoCuenta = tipoCuenta;
         this.saldo = saldo;
         this.movimiento = movimiento;
+        this.fechaApertura = fechaApertura;
         this.perteneceSocio = perteneceSocio;
     }
 
@@ -62,6 +68,14 @@ public class Cuenta {
 
     public void setMovimiento(String movimiento) {
         this.movimiento = movimiento;
+    }
+
+    public LocalDateTime getFechaApertura() {
+        return fechaApertura;
+    }
+
+    public void setFechaApertura(LocalDateTime fechaApertura) {
+        this.fechaApertura = fechaApertura;
     }
 
     public Socio getPerteneceSocio() {
