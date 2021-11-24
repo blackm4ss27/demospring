@@ -1,5 +1,7 @@
 package pe.edu.uandina.demo2Spring.modelo;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Calendar;
@@ -23,6 +25,7 @@ public class Prestamo {
     //relaciones
     @ManyToOne
     @JoinColumn(name = "solicitadoporSocio", referencedColumnName = "id")
+    @JsonBackReference
     private Socio solicitadoporSocio;
 
     public Prestamo() {

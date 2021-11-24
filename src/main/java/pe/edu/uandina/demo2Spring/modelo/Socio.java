@@ -1,5 +1,7 @@
 package pe.edu.uandina.demo2Spring.modelo;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -34,6 +36,7 @@ public class Socio {
     @OneToMany(mappedBy = "perteneceSocio")
     private List<Cuenta> tieneCuenta;
     @OneToMany(mappedBy = "solicitadoporSocio")
+    @JsonManagedReference
     private List<Prestamo> solicitaPrestamos;
 
     public Socio() {
