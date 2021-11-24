@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.*;
 import pe.edu.uandina.demo2Spring.modelo.Ocupacion;
 import pe.edu.uandina.demo2Spring.modelo.services.IOcupacionService;
 
+import java.math.RoundingMode;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -27,6 +29,8 @@ public class OcupacionRestController {
     @PostMapping("/ocupacion")
     @ResponseStatus(HttpStatus.CREATED)
     public Ocupacion crear(@RequestBody Ocupacion ocupacion) {
+        ocupacion.setCreatedAt(LocalDateTime.now());
+        ocupacion.setSueldoBase(ocupacion.getSueldoBase().setScale(2, RoundingMode.HALF_UP));
         return ocupacionService.save(ocupacion);
     }
 
