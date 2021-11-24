@@ -1,0 +1,1 @@
+insert into cuenta(tipoCuenta) values ("Premium"), ("Corriente"), ("Independencia");

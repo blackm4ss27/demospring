@@ -21,6 +21,8 @@ public class Cuenta {
     private String movimiento;
     @Column (name = "fechaApertura")
     private LocalDateTime fechaApertura;
+    @Column (name = "nroCuenta")
+    private String nroCuenta;
     //relaciones
     @ManyToOne
     @JoinColumn(name = "perteneceSocio", referencedColumnName = "id")
@@ -29,12 +31,13 @@ public class Cuenta {
     public Cuenta() {
     }
 
-    public Cuenta(long id, String tipoCuenta, float saldo, String movimiento, LocalDateTime fechaApertura, Socio perteneceSocio) {
+    public Cuenta(long id, String tipoCuenta, float saldo, String movimiento, LocalDateTime fechaApertura, String nroCuenta, Socio perteneceSocio) {
         this.id = id;
         this.tipoCuenta = tipoCuenta;
         this.saldo = saldo;
         this.movimiento = movimiento;
         this.fechaApertura = fechaApertura;
+        this.nroCuenta = nroCuenta;
         this.perteneceSocio = perteneceSocio;
     }
 
@@ -76,6 +79,14 @@ public class Cuenta {
 
     public void setFechaApertura(LocalDateTime fechaApertura) {
         this.fechaApertura = fechaApertura;
+    }
+
+    public String getNroCuenta() {
+        return nroCuenta;
+    }
+
+    public void setNroCuenta(String nroCuenta) {
+        this.nroCuenta = nroCuenta;
     }
 
     public Socio getPerteneceSocio() {

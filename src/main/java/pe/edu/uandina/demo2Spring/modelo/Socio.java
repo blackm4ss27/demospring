@@ -38,6 +38,10 @@ public class Socio {
     @OneToMany(mappedBy = "solicitadoporSocio")
     @JsonManagedReference
     private List<Prestamo> solicitaPrestamos;
+    //aaa
+    @ManyToOne
+    @JoinColumn(name = "tieneocupacion", referencedColumnName = "id")
+    private Ocupacion tieneOcupacion;
 
     public Socio() {
     }
@@ -147,5 +151,13 @@ public class Socio {
 
     public void setSolicitaPrestamos(List<Prestamo> solicitaPrestamos) {
         this.solicitaPrestamos = solicitaPrestamos;
+    }
+
+    public Ocupacion getTieneOcupacion() {
+        return tieneOcupacion;
+    }
+
+    public void setTieneOcupacion(Ocupacion tieneOcupacion) {
+        this.tieneOcupacion = tieneOcupacion;
     }
 }

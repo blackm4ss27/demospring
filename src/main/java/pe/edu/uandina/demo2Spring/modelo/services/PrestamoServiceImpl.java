@@ -18,4 +18,22 @@ public class PrestamoServiceImpl implements IPrestamoService{
     public List<Prestamo> findAll() {
         return (List<Prestamo>) prestamoDao.findAll();
     }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Prestamo findById(Long id) {
+        return prestamoDao.findById(id).orElse(null);
+    }
+
+    @Override
+    @Transactional
+    public Prestamo save(Prestamo prestamo) {
+        return prestamoDao.save(prestamo);
+    }
+
+    @Override
+    @Transactional
+    public void delete(Long id) {
+        prestamoDao.deleteById(id);
+    }
 }

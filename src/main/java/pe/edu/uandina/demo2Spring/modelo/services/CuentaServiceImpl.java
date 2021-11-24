@@ -18,4 +18,22 @@ public class CuentaServiceImpl implements ICuentaService{
     public List<Cuenta> findAll() {
         return (List<Cuenta>) cuentaDao.findAll();
     }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Cuenta findById(Long id) {
+        return cuentaDao.findById(id).orElse(null);
+    }
+
+    @Override
+    @Transactional
+    public Cuenta save(Cuenta cuenta) {
+        return cuentaDao.save(cuenta);
+    }
+
+    @Override
+    @Transactional
+    public void delete(Long id) {
+        cuentaDao.deleteById(id);
+    }
 }

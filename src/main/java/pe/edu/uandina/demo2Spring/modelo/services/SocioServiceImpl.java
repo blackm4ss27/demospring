@@ -18,4 +18,22 @@ public class SocioServiceImpl implements ISocioService{
     public List<Socio> findAll() {
         return (List<Socio>) socioDao.findAll();
     }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Socio findById(Long id) {
+        return socioDao.findById(id).orElse(null);
+    }
+
+    @Override
+    @Transactional
+    public Socio save(Socio socio) {
+        return socioDao.save(socio);
+    }
+
+    @Override
+    @Transactional
+    public void delete(Long id) {
+        socioDao.deleteById(id);
+    }
 }

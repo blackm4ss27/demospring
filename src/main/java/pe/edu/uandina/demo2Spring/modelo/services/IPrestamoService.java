@@ -6,4 +6,7 @@ import java.util.List;
 
 public interface IPrestamoService {
     public List<Prestamo> findAll();
+    public Prestamo findById(Long id);
+    public Prestamo save(Prestamo prestamo);
+    public void delete(Long id);
 }
