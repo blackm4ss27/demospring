@@ -1,5 +1,7 @@
 package pe.edu.uandina.demo2Spring.modelo;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +16,7 @@ public class Ocupacion {
     @Column(name = "nombre")
     private String nombre;
     @OneToMany(mappedBy = "tieneOcupacion")
+    @JsonManagedReference
     private List<Socio> socios;
 
     public Ocupacion() {
