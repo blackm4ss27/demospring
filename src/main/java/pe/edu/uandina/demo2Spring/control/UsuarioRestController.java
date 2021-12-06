@@ -1,3 +1,4 @@
+/*
 package pe.edu.uandina.demo2Spring.control;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,8 +45,11 @@ public class UsuarioRestController {
         usuarioService.delete(id);
     }
 
-    /*@PostMapping("/usuario")
+    */
+/*@PostMapping("/usuario")
     private String mensaje(){
         return "desde mensaje via post";
-    }*/
+    }*//*
+
 }
+*/

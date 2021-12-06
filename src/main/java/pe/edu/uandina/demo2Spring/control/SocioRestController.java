@@ -35,6 +35,15 @@ public class SocioRestController {
     public Socio actualizar(@RequestBody Socio socio, @PathVariable Long id) {
         Socio socioOriginal = socioService.findById(id);
         socioOriginal.setNomSocio(socio.getNomSocio());
+        socioOriginal.setApSocio(socio.getApSocio());
+        socioOriginal.setDni(socio.getDni());
+        socioOriginal.setSexo(socio.getSexo());
+        socioOriginal.setOcupacion(socio.getOcupacion());
+        socioOriginal.setFechaNac(socio.getFechaNac());
+        socioOriginal.setCorreo(socio.getCorreo());
+        socioOriginal.setCelular(socio.getCelular());
+        socioOriginal.setLogin(socio.getLogin());
+        socioOriginal.setContrasena(socio.getContrasena());
         return socioService.save(socioOriginal);
     }
 

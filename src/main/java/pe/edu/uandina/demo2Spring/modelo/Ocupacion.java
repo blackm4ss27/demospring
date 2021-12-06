@@ -1,3 +1,4 @@
+/*
 package pe.edu.uandina.demo2Spring.modelo;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -29,10 +30,12 @@ public class Ocupacion {
     public Ocupacion() {
     }
 
-    /*public Ocupacion(String nombre, List<Socio> socios) {
+    */
+/*public Ocupacion(String nombre, List<Socio> socios) {
         this.nombre = nombre;
         this.socios = socios;
-    }*/
+    }*//*
+
 
     public Ocupacion(String nombre, LocalDateTime createdAt, BigDecimal sueldoBase, List<Socio> socios) {
         this.nombre = nombre;
@@ -84,3 +87,4 @@ public class Ocupacion {
         this.socios = socios;
     }
 }
+*/

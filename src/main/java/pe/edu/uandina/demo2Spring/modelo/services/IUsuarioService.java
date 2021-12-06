@@ -1,3 +1,4 @@
+/*
 package pe.edu.uandina.demo2Spring.modelo.services;
 
 import pe.edu.uandina.demo2Spring.modelo.Prestamo;
@@ -11,3 +12,4 @@ public interface IUsuarioService {
     public Usuario save(Usuario usuario);
     public void delete(Long id);
 }
+*/

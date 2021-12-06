@@ -34,7 +34,10 @@ public class PrestamoRestController {
     @ResponseStatus(HttpStatus.CREATED)
     public Prestamo actualizar(@RequestBody Prestamo prestamo, @PathVariable Long id) {
         Prestamo prestamoOriginal = prestamoService.findById(id);
+        prestamoOriginal.setTipoPrestamo(prestamo.getTipoPrestamo());
         prestamoOriginal.setMontoPrestamo(prestamo.getMontoPrestamo());
+        prestamoOriginal.setFecEmision(prestamo.getFecEmision());
+        prestamoOriginal.setTasaInteres(prestamo.getTasaInteres());
         return prestamoService.save(prestamoOriginal);
     }
 

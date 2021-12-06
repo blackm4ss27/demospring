@@ -14,18 +14,18 @@ public class Prestamo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
-    @Column(name = "tipoPrestamo")
+    @Column(name = "tipoprestamo")
     private String tipoPrestamo;
-    @Column(name = "montoPrestamo")
+    @Column(name = "montoprestamo")
     private float montoPrestamo;
-    @Column(name = "fecEmision")
+    @Column(name = "fecemision")
     private LocalDateTime fecEmision;
-    @Column(name = "tasaInteres")
+    @Column(name = "tasainteres")
     private float tasaInteres;
     //relaciones
     @ManyToOne
     @JoinColumn(name = "solicitadoporSocio", referencedColumnName = "id")
-    @JsonBackReference
+    @JsonBackReference (value = "solicitadoporSocio")
     private Socio solicitadoporSocio;
 
     public Prestamo() {

@@ -1,3 +1,4 @@
+/*
 package pe.edu.uandina.demo2Spring.modelo;
 
 import javax.persistence.*;
@@ -56,3 +57,4 @@ public class Usuario {
         this.esdeSocio = esdeSocio;
     }
 }
+*/

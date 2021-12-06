@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.*;
 import pe.edu.uandina.demo2Spring.modelo.Cuenta;
 import pe.edu.uandina.demo2Spring.modelo.services.ICuentaService;
 
+import java.math.RoundingMode;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -27,6 +29,8 @@ public class CuentaRestController {
     @PostMapping("/cuenta")
     @ResponseStatus(HttpStatus.CREATED)
     public Cuenta crear(@RequestBody Cuenta cuenta) {
+        cuenta.setFechaApertura(LocalDateTime.now());
+        cuenta.setSaldo(cuenta.getSaldo().setScale(2, RoundingMode.HALF_UP));
         return cuentaService.save(cuenta);
     }
 
@@ -35,6 +39,9 @@ public class CuentaRestController {
     public Cuenta actualizar(@RequestBody Cuenta cuenta, @PathVariable Long id) {
         Cuenta cuentaOriginal = cuentaService.findById(id);
         cuentaOriginal.setTipoCuenta(cuenta.getTipoCuenta());
+        cuentaOriginal.setNroCuenta(cuenta.getNroCuenta());
+        cuentaOriginal.setSaldo(cuenta.getSaldo());
+        cuentaOriginal.setFechaApertura(cuenta.getFechaApertura());
         return cuentaService.save(cuentaOriginal);
     }
 

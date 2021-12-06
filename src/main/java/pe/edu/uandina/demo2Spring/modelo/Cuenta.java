@@ -1,7 +1,10 @@
 package pe.edu.uandina.demo2Spring.modelo;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,31 +16,33 @@ public class Cuenta {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
-    @Column(name = "tipoCuenta")
+    @Column(name = "tipocuenta")
     private String tipoCuenta;
-    @Column(name = "saldo")
-    private float saldo;
-    @Column(name = "movimiento")
-    private String movimiento;
-    @Column (name = "fechaApertura")
-    private LocalDateTime fechaApertura;
-    @Column (name = "nroCuenta")
+    @Column (name = "nrocuenta")
     private String nroCuenta;
+    @Column(name = "saldo")
+    private BigDecimal saldo;
+    /*@Column(name = "movimiento")
+    private String movimiento;*/
+    @Column (name = "fechaapertura")
+    private LocalDateTime fechaApertura;
     //relaciones
     @ManyToOne
     @JoinColumn(name = "perteneceSocio", referencedColumnName = "id")
+    @JsonBackReference (value = "perteneceSocio")
     private Socio perteneceSocio;
+    @OneToMany(mappedBy = "perteneceCuenta")
+    @JsonManagedReference (value = "perteneceCuenta")
+    private List<Movimiento> tieneMovimientos;
 
     public Cuenta() {
     }
 
-    public Cuenta(long id, String tipoCuenta, float saldo, String movimiento, LocalDateTime fechaApertura, String nroCuenta, Socio perteneceSocio) {
-        this.id = id;
+    public Cuenta(String tipoCuenta, String nroCuenta, BigDecimal saldo, LocalDateTime fechaApertura, Socio perteneceSocio) {
         this.tipoCuenta = tipoCuenta;
-        this.saldo = saldo;
-        this.movimiento = movimiento;
-        this.fechaApertura = fechaApertura;
         this.nroCuenta = nroCuenta;
+        this.saldo = saldo;
+        this.fechaApertura = fechaApertura;
         this.perteneceSocio = perteneceSocio;
     }
 
@@ -57,21 +62,29 @@ public class Cuenta {
         this.tipoCuenta = tipoCuenta;
     }
 
-    public float getSaldo() {
+    public String getNroCuenta() {
+        return nroCuenta;
+    }
+
+    public void setNroCuenta(String nroCuenta) {
+        this.nroCuenta = nroCuenta;
+    }
+
+    public BigDecimal getSaldo() {
         return saldo;
     }
 
-    public void setSaldo(float saldo) {
+    public void setSaldo(BigDecimal saldo) {
         this.saldo = saldo;
     }
 
-    public String getMovimiento() {
+    /*public String getMovimiento() {
         return movimiento;
     }
 
     public void setMovimiento(String movimiento) {
         this.movimiento = movimiento;
-    }
+    }*/
 
     public LocalDateTime getFechaApertura() {
         return fechaApertura;
@@ -81,19 +94,22 @@ public class Cuenta {
         this.fechaApertura = fechaApertura;
     }
 
-    public String getNroCuenta() {
-        return nroCuenta;
-    }
-
-    public void setNroCuenta(String nroCuenta) {
-        this.nroCuenta = nroCuenta;
-    }
-
     public Socio getPerteneceSocio() {
         return perteneceSocio;
     }
 
     public void setPerteneceSocio(Socio perteneceSocio) {
         this.perteneceSocio = perteneceSocio;
+    }
+
+    public List<Movimiento> getTieneMovimientos() {
+        if(this.tieneMovimientos == null){
+            this.tieneMovimientos = new ArrayList<>();
+        }
+        return tieneMovimientos;
+    }
+
+    public void setTieneMovimientos(List<Movimiento> tieneMovimientos) {
+        this.tieneMovimientos = tieneMovimientos;
     }
 }

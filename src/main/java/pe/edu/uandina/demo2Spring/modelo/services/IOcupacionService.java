@@ -1,3 +1,4 @@
+/*
 package pe.edu.uandina.demo2Spring.modelo.services;
 
 import pe.edu.uandina.demo2Spring.modelo.Ocupacion;
@@ -10,3 +11,4 @@ public interface IOcupacionService {
     public Ocupacion save(Ocupacion ocupacion);
     public void delete(Long id);
 }
+*/

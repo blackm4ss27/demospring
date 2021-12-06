@@ -1,3 +1,4 @@
+/*
 package pe.edu.uandina.demo2Spring.modelo.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,3 +38,4 @@ public class OcupacionServiceImpl implements IOcupacionService{
         ocupacionDao.deleteById(id);
     }
 }
+*/
