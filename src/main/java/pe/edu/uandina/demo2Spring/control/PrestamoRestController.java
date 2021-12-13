@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import pe.edu.uandina.demo2Spring.modelo.Prestamo;
 import pe.edu.uandina.demo2Spring.modelo.services.IPrestamoService;
 
+import java.math.RoundingMode;
 import java.util.List;
 
 @RestController
@@ -27,6 +28,7 @@ public class PrestamoRestController {
     @PostMapping("/prestamo")
     @ResponseStatus(HttpStatus.CREATED)
     public Prestamo crear(@RequestBody Prestamo prestamo) {
+        prestamo.setMontoPrestamo(prestamo.getMontoPrestamo().setScale(2, RoundingMode.HALF_UP));
         return prestamoService.save(prestamo);
     }
 

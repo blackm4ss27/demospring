@@ -19,6 +19,9 @@ public class Demo2SpringApplication {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
 				registry.addMapping("/api/socio").allowedOrigins("http://localhost:4200");
+				registry.addMapping("/api/cuenta").allowedOrigins("http://localhost:4200");
+				registry.addMapping("/api/movimiento").allowedOrigins("http://localhost:4200");
+				registry.addMapping("/api/prestamo").allowedOrigins("http://localhost:4200");
 			}
 		};
 	}

@@ -3,6 +3,7 @@ package pe.edu.uandina.demo2Spring.modelo;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Calendar;
 import java.util.List;
@@ -17,7 +18,7 @@ public class Prestamo {
     @Column(name = "tipoprestamo")
     private String tipoPrestamo;
     @Column(name = "montoprestamo")
-    private float montoPrestamo;
+    private BigDecimal montoPrestamo;
     @Column(name = "fecemision")
     private LocalDateTime fecEmision;
     @Column(name = "tasainteres")
@@ -31,7 +32,7 @@ public class Prestamo {
     public Prestamo() {
     }
 
-    public Prestamo(String tipoPrestamo, float montoPrestamo, LocalDateTime fecEmision, float tasaInteres, Socio solicitadoporSocio) {
+    public Prestamo(String tipoPrestamo, BigDecimal montoPrestamo, LocalDateTime fecEmision, float tasaInteres, Socio solicitadoporSocio) {
         this.tipoPrestamo = tipoPrestamo;
         this.montoPrestamo = montoPrestamo;
         this.fecEmision = fecEmision;
@@ -55,11 +56,11 @@ public class Prestamo {
         this.tipoPrestamo = tipoPrestamo;
     }
 
-    public float getMontoPrestamo() {
+    public BigDecimal getMontoPrestamo() {
         return montoPrestamo;
     }
 
-    public void setMontoPrestamo(float montoPrestamo) {
+    public void setMontoPrestamo(BigDecimal montoPrestamo) {
         this.montoPrestamo = montoPrestamo;
     }
 
